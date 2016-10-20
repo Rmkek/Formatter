@@ -1,0 +1,3 @@
+void myFunction(String test) {
+    throw new Exception("Test");
+}
