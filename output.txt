@@ -1,3 +1,6 @@
 void myFunction(String test) {
+    try{
+        makeMyCodeGreatAgain();
+    }
     throw new Exception("Test");
 }
