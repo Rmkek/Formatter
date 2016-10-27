@@ -5,5 +5,5 @@
 
 2.) ѕо пам€ти:
 N * C * (D*2+2), где N - пам€ть выдел€ема€ под StringBuilder, C - пам€ть, используема€ дл€ записи в файл,
-D - builder.insert, следу€ OpenJDK,.
+D - builder.insert, следу€ OpenJDK.
 —ложность по пам€ти: N * C * (2 * D + 2)
