@@ -5,22 +5,25 @@ import com.rmk.formatter.exception.WriterException;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * Class for writing into files. Implements IWriter interface.
+ */
 public class FileWriter implements IWriter {
 
-    OutputStream stream;
+    private OutputStream stream;
 
 
     @Override
-    public void write(String text) throws WriterException {
+    public void write(final String text) throws WriterException {
         try {
             stream.write(text.getBytes());
-        } catch(IOException ex) {
+        } catch (IOException ex) {
             throw new WriterException("Exception occured when writing to OutputStream", ex);
         }
     }
 
-    public void setWriter(OutputStream stream) {
-        this.stream = stream;
+    public void setWriter(final OutputStream outputStream) {
+        this.stream = outputStream;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.rmk.formatter.reader;
 
-import java.io.InputStream;
-
 /**
  * Interface for reading files.
  */

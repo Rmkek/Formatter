@@ -1,7 +1,6 @@
 *.class
 .idea
 .git
-pom.xml
 target
 Formatter.iml
 # Mobile Tools for Java (J2ME)
