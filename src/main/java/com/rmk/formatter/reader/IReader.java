@@ -1,17 +1,22 @@
 package com.rmk.formatter.reader;
 
+import com.rmk.formatter.exception.ReaderException;
+
 /**
  * Interface for reading files.
  */
-interface IReader {
-
+public interface IReader {
+    /**
+     * Kind of facade over stream.ready method.
+     * @return true if stream still has chars in it.
+     * @throws ReaderException when IO exceptions occur.
+     */
+    boolean hasChars() throws ReaderException;
 
     /**
-     * Singleton that returns stream from which data will be read.
-     * @param file from which InputStream will be created.
-     * @return InputStream with createn from file.
-     * @throws ReaderException when any exception with reading occurs.
+     * Reads char and returns it.
+     * @return char that was read.
+     * @throws ReaderException when IO exceptions occur.
      */
-    //public static InputStream getReader(String file) throws ReaderException;
-
+    char readChar() throws ReaderException;
 }

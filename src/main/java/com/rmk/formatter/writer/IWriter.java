@@ -1,23 +1,19 @@
 package com.rmk.formatter.writer;
 
-import com.rmk.formatter.exception.WriterException;
-
 /**
  * Interface for writing. Should be implemented by writer class.
  */
-interface IWriter {
+public interface IWriter {
 
     /**
-     * Method that takes String text, then writes text using OutputStream.
-     * @param text text that will be written to stream.
-     * @throws WriterException thrown if any exception occurs.
+     * Writes chars in implemented stream.
+     * @param c chars that will be written.
      */
-    void write(String text) throws WriterException;
+    void writeChars(char[] c);
 
     /**
-     * Method that closes OutputStream. Flushes stream before closing.
-     * @throws WriterException thrown if any exception occurs.
+     * Method for closing stream.
      */
-    void close() throws WriterException;
+    void close();
 
 }

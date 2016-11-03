@@ -2,37 +2,42 @@ package com.rmk.formatter.writer;
 
 import com.rmk.formatter.exception.WriterException;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
 
 /**
  * Class for writing into files. Implements IWriter interface.
  */
 public class FileWriter implements IWriter {
 
-    private OutputStream stream;
+    private PrintWriter writer;
 
-
-    @Override
-    public void write(final String text) throws WriterException {
+    /**
+     * Constructor for initializing writer. Takes filepath and encoding.
+     * @param filePath file that will be written to.
+     * @param encode file encoding.
+     * @throws WriterException thrown when IO exceptions occur.
+     */
+    public FileWriter(final String filePath, final String encode) throws WriterException {
         try {
-            stream.write(text.getBytes());
-        } catch (IOException ex) {
-            throw new WriterException("Exception occured when writing to OutputStream", ex);
+            writer = new PrintWriter(filePath, encode);
+        } catch (FileNotFoundException | UnsupportedEncodingException ex) {
+            throw new WriterException("Exception happened when initializing writer.", ex);
         }
     }
 
-    public void setWriter(final OutputStream outputStream) {
-        this.stream = outputStream;
+    @Override
+    public void writeChars(final char[] chars) {
+        writer.write(chars);
     }
 
     @Override
-    public void close() throws WriterException {
-        try {
-            stream.flush();
-            stream.close();
-        } catch (IOException e) {
-            throw new WriterException("Exception occured when closing OutputStream.", e);
-        }
+    public void close() {
+        writer.close();
     }
+
+
+
 }
