@@ -25,6 +25,7 @@ final class Main {
 
         try {
             formatter.format(reader, writer);
+
         } catch (Exception ex) {
             throw new Exception("Exception happened.", ex);
         }

@@ -1,13 +1,9 @@
-void myFunction(String test) {
- ;
-
-try;
-
-makeMyCodeGreatAgain() {
-;;
-
-};
-
-throw new Exception("Test") {
-;
+void myFunction(String test){
+    help();
+//test
+/*wow
+multi
+line
+comment!!!
+*/
 }

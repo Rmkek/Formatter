@@ -1,18 +1,15 @@
-import com.rmk.formatter.exception.ReaderException;
 import com.rmk.formatter.exception.WriterException;
-import com.rmk.formatter.reader.FileReader;
 import com.rmk.formatter.writer.FileWriter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
 public class FileWriterTest {
+
     FileWriter writer;
 
     @Before

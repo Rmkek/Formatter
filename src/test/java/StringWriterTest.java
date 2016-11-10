@@ -1,0 +1,33 @@
+import com.rmk.formatter.writer.StringWriter;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class StringWriterTest {
+    private StringWriter writer;
+
+    @Before
+    public void setUp() throws Exception {
+        writer = new StringWriter();
+    }
+
+    @Test
+    public void testWriterCanWrite() throws Exception {
+        writer.writeChars("Yay! I can write!".toCharArray());
+        String str = writer.getStringContent();
+        assertEquals(str, "Yay! I can write!");
+    }
+
+    @Test
+    public void testWriterCanCloseItself() throws Exception {
+        writer.close();
+    }
+
+    @Test
+    public void testWriterCanWriteChar() throws Exception {
+        writer.writeChar('\u0000');
+        assertEquals(writer.getStringContent(), "\u0000");
+    }
+
+}

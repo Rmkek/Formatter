@@ -1,11 +1,15 @@
 import com.rmk.formatter.formatter.Formatter;
 import com.rmk.formatter.reader.FileReader;
+import com.rmk.formatter.reader.StringReader;
 import com.rmk.formatter.writer.FileWriter;
+import com.rmk.formatter.writer.StringWriter;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class FormatterTest {
-    Formatter formatter;
+    private Formatter formatter;
 
     @Before
     public void setUp() throws Exception {
@@ -18,5 +22,25 @@ public class FormatterTest {
         FileWriter writer = new FileWriter("Test_Write.txt", "UTF-8");
 
         formatter.format(reader, writer);
+    }
+
+    @Test
+    public void testFormatWithString() throws Exception {
+        StringReader reader = new StringReader("void myFunction(String test){help();\n");
+        StringWriter writer = new StringWriter();
+
+        formatter.format(reader, writer);
+        assertEquals(writer.getStringContent(), "void myFunction(String test){\n    help();\n}");
+    }
+
+    @Test
+    public void testFormatWithStringAndComments() throws Exception {
+        StringReader reader = new StringReader("void myFunction(String test){help();\n//test\n/* wow" +
+                "\nmulti\nline\ncomment!!!\n*/\n");
+        StringWriter writer = new StringWriter();
+
+        formatter.format(reader, writer);
+        assertEquals(writer.getStringContent(), "void myFunction(String test){\n    help();" +
+                "\n//test\n/*wow\nmulti\nline\ncomment!!!\n*/\n}");
     }
 }

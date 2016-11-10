@@ -29,6 +29,11 @@ public class FileWriter implements IWriter {
     }
 
     @Override
+    public void writeChar(final char c) {
+        writer.write(c);
+    }
+
+    @Override
     public void writeChars(final char[] chars) {
         writer.write(chars);
     }
@@ -37,7 +42,5 @@ public class FileWriter implements IWriter {
     public void close() {
         writer.close();
     }
-
-
 
 }
