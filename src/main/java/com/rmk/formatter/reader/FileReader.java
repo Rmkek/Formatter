@@ -2,9 +2,10 @@ package com.rmk.formatter.reader;
 
 import com.rmk.formatter.exception.ReaderException;
 
-import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 /**
  * FileReader implementation.
@@ -12,7 +13,6 @@ import java.io.FileNotFoundException;
 public class FileReader implements IReader {
 
     private BufferedReader reader;
-
 
     /**
      * FileReader constructor with filePath.

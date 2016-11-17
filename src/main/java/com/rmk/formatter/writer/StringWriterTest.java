@@ -1,4 +1,5 @@
-import com.rmk.formatter.writer.StringWriter;
+package com.rmk.formatter.writer;
+
 import org.junit.Before;
 import org.junit.Test;
 

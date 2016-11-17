@@ -1,8 +1,10 @@
 package com.rmk.formatter;
 
 import com.rmk.formatter.formatter.Formatter;
-import com.rmk.formatter.reader.FileReader;
-import com.rmk.formatter.writer.FileWriter;
+import com.rmk.formatter.reader.IReader;
+import com.rmk.formatter.reader.ReaderFactory;
+import com.rmk.formatter.writer.IWriter;
+import com.rmk.formatter.writer.WriterFactory;
 
 /**
  * Init class.
@@ -20,8 +22,9 @@ final class Main {
         Formatter formatter = new Formatter();
 
         System.out.println(System.getProperty("user.dir"));
-        FileReader reader = new FileReader("input.txt");
-        FileWriter writer = new FileWriter("output.txt", "UTF-8");
+
+        IReader reader = ReaderFactory.getReader("FileReader, input.txt");
+        IWriter writer = WriterFactory.getWriter("FileWriter, output.txt");
 
         try {
             formatter.format(reader, writer);

@@ -6,11 +6,6 @@ package com.rmk.formatter.writer;
 public class StringWriter implements IWriter {
     private StringBuilder builder = new StringBuilder();
 
-    @Override
-    public void writeChars(final char[] c) {
-        builder.append(c);
-    }
-
     /**
      * Closes the stream.
      */

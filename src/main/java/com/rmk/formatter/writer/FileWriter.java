@@ -34,11 +34,6 @@ public class FileWriter implements IWriter {
     }
 
     @Override
-    public void writeChars(final char[] chars) {
-        writer.write(chars);
-    }
-
-    @Override
     public void close() {
         writer.close();
     }
