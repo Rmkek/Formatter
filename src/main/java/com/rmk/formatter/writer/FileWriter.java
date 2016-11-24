@@ -29,15 +29,13 @@ public class FileWriter implements IWriter {
     }
 
     @Override
-    public void writeChars(final char[] chars) {
-        writer.write(chars);
+    public void writeChar(final char c) {
+        writer.write(c);
     }
 
     @Override
     public void close() {
         writer.close();
     }
-
-
 
 }

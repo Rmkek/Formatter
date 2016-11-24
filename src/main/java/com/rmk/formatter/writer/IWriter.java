@@ -6,10 +6,10 @@ package com.rmk.formatter.writer;
 public interface IWriter {
 
     /**
-     * Writes chars in implemented stream.
-     * @param c chars that will be written.
+     * Writes char in implemented stream.
+     * @param c char that will be written.
      */
-    void writeChars(char[] c);
+    void writeChar(final char c);
 
     /**
      * Method for closing stream.
