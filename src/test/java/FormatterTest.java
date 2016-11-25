@@ -30,7 +30,8 @@ public class FormatterTest {
         StringWriter writer = new StringWriter();
 
         formatter.format(reader, writer);
-        assertEquals(writer.getStringContent(), "void myFunction(String test){\n    help();\n}");
+        assertEquals(writer.getStringContent(), "vvoid myFunction(String test{\n" +
+                "    h)elp();}");
     }
 
     @Test
@@ -40,7 +41,13 @@ public class FormatterTest {
         StringWriter writer = new StringWriter();
 
         formatter.format(reader, writer);
-        assertEquals(writer.getStringContent(), "void myFunction(String test){\n    help();" +
-                "\n//test\n/*wow\nmulti\nline\ncomment!!!\n*/\n}");
+        assertEquals(writer.getStringContent(), "vvoid myFunction(String test{\n" +
+                "    h)elp();//test\n" +
+                "/*wow\n" +
+                "multi\n" +
+                "line\n" +
+                "comment!!!\n" +
+                "*/;    \n" +
+                "}");
     }
 }
