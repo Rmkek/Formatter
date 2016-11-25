@@ -30,15 +30,15 @@ public class CommandChooser {
 
 
             while (reader.hasChars()) {
-                currentSymbol = reader.readChar();
+                currentSymbol = (char) reader.readChar();
 
                 if (currentSymbol == '\'' || currentSymbol == '\"') { //check for '
-                    nextSymbol = reader.readChar();
+                    nextSymbol = (char) reader.readChar();
                     writer.writeChar(currentSymbol);
                     writer.writeChar(nextSymbol);
 
                     while (nextSymbol != '\"' || nextSymbol != '\'') {
-                        nextSymbol = reader.readChar();
+                        nextSymbol = (char) reader.readChar();
                         writer.writeChar(nextSymbol);
                     }
 //                    lastSymbol = tmpChars[1];
@@ -46,7 +46,7 @@ public class CommandChooser {
                 }
 
                 if (currentSymbol == '/') { //check for comment
-                    nextSymbol = reader.readChar();
+                    nextSymbol = (char) reader.readChar();
                     writer.writeChar(currentSymbol);
                     writer.writeChar(nextSymbol);
 
@@ -54,11 +54,11 @@ public class CommandChooser {
                     char ch2;
 
                     if (nextSymbol == '*') {
-                        ch = reader.readChar();
+                        ch = (char) reader.readChar();
                         ch2 = NULL_CHAR;
                         while (ch != '*' && ch2 != '/') {
-                            ch = reader.readChar();
-                            ch2 = reader.readChar();
+                            ch = (char) reader.readChar();
+                            ch2 = (char) reader.readChar();
                             writer.writeChar(ch);
                             writer.writeChar(ch2);
                         }
@@ -68,7 +68,7 @@ public class CommandChooser {
 
                     if (nextSymbol == '/') {
                         do {
-                            ch = reader.readChar();
+                            ch = (char) reader.readChar();
                             writer.writeChar(ch);
                         } while (ch != '\n' || ch == '\u0000');
 //                        lastSymbol = ch;
@@ -94,7 +94,7 @@ public class CommandChooser {
 
                 if (currentSymbol == '{') {
                     ++curlyBracketsAmount;
-                    nextSymbol = reader.readChar();
+                    nextSymbol = (char) reader.readChar();
 
                     if (nextSymbol != '\n') {
                         writer.writeChar(currentSymbol); // '{'

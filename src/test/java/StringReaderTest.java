@@ -22,7 +22,7 @@ public class StringReaderTest {
 
     @Test
     public void testReaderCanReadChar() throws Exception {
-        char c = reader.readChar();
+        char c = (char) reader.readChar();
         assertEquals('v', c);
     }
 
@@ -40,7 +40,7 @@ public class StringReaderTest {
         while (reader.hasChars()) {
             reader.readChar();
         }
-        char ch = reader.readChar();
+        char ch = (char) reader.readChar();
     }
 
 }

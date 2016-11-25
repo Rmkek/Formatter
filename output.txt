@@ -1,9 +1,8 @@
-void myFunction(String test){
-    help();
-//test
+vvoid myFunction(String test{
+    h)elp();;//test
 /*wow
 multi
 line
 comment!!!
-*/
-}
+*/    
+;}
