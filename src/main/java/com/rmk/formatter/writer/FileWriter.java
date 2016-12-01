@@ -29,8 +29,8 @@ public class FileWriter implements IWriter {
     }
 
     @Override
-    public void writeChar(final char c) {
-        writer.write(c);
+    public void writeChar(final Object c) {
+        writer.write((char) c);
     }
 
     @Override

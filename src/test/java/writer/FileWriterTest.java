@@ -1,3 +1,5 @@
+package writer;
+
 import com.rmk.formatter.exception.WriterException;
 import com.rmk.formatter.writer.FileWriter;
 import org.junit.Before;

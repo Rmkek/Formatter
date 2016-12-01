@@ -1,5 +1,6 @@
-package com.rmk.formatter.formatter;
+package formatter;
 
+import com.rmk.formatter.formatter.Formatter;
 import com.rmk.formatter.reader.FileReader;
 import com.rmk.formatter.reader.StringReader;
 import com.rmk.formatter.writer.FileWriter;

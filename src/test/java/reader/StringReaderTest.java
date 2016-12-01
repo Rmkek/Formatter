@@ -1,3 +1,5 @@
+package reader;
+
 import com.rmk.formatter.exception.ReaderException;
 import com.rmk.formatter.reader.IReader;
 import com.rmk.formatter.reader.StringReader;

@@ -24,7 +24,7 @@ public class StringReader implements IReader {
     }
 
     @Override
-    public char readChar() throws ReaderException {
+    public Object readChar() throws ReaderException {
         return string.charAt(charNum++);
     }
 }

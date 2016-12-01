@@ -1,23 +1,49 @@
 package com.rmk.formatter.formatter.command;
 
-import com.rmk.formatter.exception.FormatterException;
-import com.rmk.formatter.reader.IReader;
 import com.rmk.formatter.writer.IWriter;
 
 /**
  * Class for choosing which command will be executed.
  */
-public class CommandChooser {
+public class Action {
     private static final int NULL_CHAR = 65535;
     private static final int AMOUNT_OF_SPACES = 4;
 
+    private static char[] tmp;
+
     /**
-     * Class that returns command by given reader and writer.
-     * @param reader any IReader implementation.
-     * @param writer any IWriter implementation.
-     * @throws FormatterException when any exception occurs
+     * Action constructor.
+     * @param action string that will be written.
      */
-    public void getCommand(final IReader reader, final IWriter writer) throws FormatterException {
+    public Action(final String action) {
+        tmp = action.toCharArray();
+    }
+
+    /**
+     * Executes code
+     * @param writer that will be written to
+     */
+    public void execute(final IWriter writer) {
+        for (final char each : tmp) {
+            writer.writeChar(each);
+        }
+    }
+
+    private static char[] evalBracketsSpaces(final int amountOfCurlyBrackets) {
+        char[] str = new char[amountOfCurlyBrackets * AMOUNT_OF_SPACES];
+        for (int i = 0; i < amountOfCurlyBrackets * AMOUNT_OF_SPACES; i++) {
+            str[i] = ' ';
+        }
+        return str;
+    }
+
+    private void writeSpaces(final char[] spaces, final IWriter writer) {
+        for (char ch: spaces) {
+            writer.writeChar(ch);
+        }
+    }
+
+/*    public void getCommand(final IReader reader, final IWriter writer) throws FormatterException {
 
         int curlyBracketsAmount = 0;
         int charsRead = 1;
@@ -151,5 +177,5 @@ public class CommandChooser {
             writer.writeChar(ch);
         }
     }
-
+*/
 }

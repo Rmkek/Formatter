@@ -2,14 +2,15 @@ package com.rmk.formatter.writer;
 
 /**
  * Interface for writing. Should be implemented by writer class.
+ * @param <T> type of char written.
  */
-public interface IWriter {
+public interface IWriter<T> {
 
     /**
-     * Writes char in implemented stream.
+     * Writes symbol in implemented stream.
      * @param c char that will be written.
      */
-    void writeChar(final char c);
+    void writeChar(final T c);
 
     /**
      * Method for closing stream.

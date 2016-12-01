@@ -13,9 +13,8 @@ public class StringWriter implements IWriter {
         getStringContent();
     }
 
-    @Override
-    public void writeChar(final char c) {
-        builder.append(c);
+    public void writeChar(final Object object) {
+        builder.append((char) object);
     }
 
     public String getStringContent() {

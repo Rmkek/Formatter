@@ -1,12 +1,16 @@
-package com.rmk.formatter.reader;
+package reader;
 
 import com.rmk.formatter.exception.ReaderException;
+import com.rmk.formatter.reader.FileReader;
+import com.rmk.formatter.reader.IReader;
 import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
+import java.io.*;
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class FileReaderTest {
     private IReader reader;
