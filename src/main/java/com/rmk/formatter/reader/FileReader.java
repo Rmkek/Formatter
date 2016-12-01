@@ -37,7 +37,7 @@ public class FileReader implements IReader {
     }
 
     @Override
-    public char readChar() throws ReaderException {
+    public Object readChar() throws ReaderException {
         try {
             return (char) reader.read();
         } catch (IOException ex) {

@@ -28,7 +28,7 @@ public class FileReaderTest {
 
     @Test
     public void testReaderCanReadChar() throws Exception {
-        char c = reader.readChar();
+        char c = (char) reader.readChar();
         assertEquals('T', c);
     }
 
@@ -46,7 +46,7 @@ public class FileReaderTest {
         while (reader.hasChars()) {
             reader.readChar();
         }
-        char ch = reader.readChar();
+        char ch = (char) reader.readChar();
         assertEquals('\uFFFF', ch);
     }
 

@@ -3,8 +3,8 @@ package com.rmk.formatter.reader;
 import com.rmk.formatter.exception.ReaderException;
 
 /**
- * Interface for reading files.
- * @param <T> type of char returned.
+ * Interface for reading symbol streams.
+ * @param <T> symbol type that will be read.
  */
 public interface IReader<T> {
     /**
