@@ -3,7 +3,7 @@ package com.rmk.formatter.writer;
 /**
  * Class for writing into string. Implements IWriter interface.
  */
-public class StringWriter implements IWriter {
+public class StringWriter implements IWriter<Character> {
     private StringBuilder builder = new StringBuilder();
 
     /**
@@ -15,8 +15,8 @@ public class StringWriter implements IWriter {
 
 
     @Override
-    public void writeChar(final Object c) {
-        builder.append((char) c);
+    public void writeChar(final Character c) {
+        builder.append(c);
     }
 
     public String getStringContent() {

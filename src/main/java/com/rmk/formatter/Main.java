@@ -1,6 +1,7 @@
 package com.rmk.formatter;
 
 import com.rmk.formatter.formatter.Formatter;
+import com.rmk.formatter.formatter.StateManager;
 import com.rmk.formatter.reader.IReader;
 import com.rmk.formatter.reader.ReaderFactory;
 import com.rmk.formatter.writer.IWriter;
@@ -23,11 +24,13 @@ final class Main {
 
         System.out.println(System.getProperty("user.dir"));
 
+        System.out.println("You have to write input file and output file (try input.txt and output.txt).");
+
         IReader reader = ReaderFactory.getReader("FileReader, input.txt");
         IWriter writer = WriterFactory.getWriter("FileWriter, output.txt");
 
         try {
-            formatter.format(reader, writer);
+            formatter.format(reader, writer, new StateManager());
 
         } catch (Exception ex) {
             throw new Exception("Exception happened.", ex);

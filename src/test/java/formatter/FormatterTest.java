@@ -1,6 +1,7 @@
 package formatter;
 
 import com.rmk.formatter.formatter.Formatter;
+import com.rmk.formatter.formatter.StateManager;
 import com.rmk.formatter.reader.FileReader;
 import com.rmk.formatter.reader.StringReader;
 import com.rmk.formatter.writer.FileWriter;
@@ -23,7 +24,7 @@ public class FormatterTest {
         FileReader reader = new FileReader("Test_Read.txt");
         FileWriter writer = new FileWriter("Test_Write.txt", "UTF-8");
 
-        formatter.format(reader, writer);
+        formatter.format(reader, writer, new StateManager());
     }
 
     @Test
@@ -31,7 +32,7 @@ public class FormatterTest {
         StringReader reader = new StringReader("void myFunction(String test){help();\n");
         StringWriter writer = new StringWriter();
 
-        formatter.format(reader, writer);
+        formatter.format(reader, writer, new StateManager());
         assertEquals(writer.getStringContent(), "vvoid myFunction(String test{\n" +
                 "    h)elp();}");
     }
@@ -42,7 +43,7 @@ public class FormatterTest {
                 "\nmulti\nline\ncomment!!!\n*/\n");
         StringWriter writer = new StringWriter();
 
-        formatter.format(reader, writer);
+        formatter.format(reader, writer, new StateManager());
         assertEquals(writer.getStringContent(), "vvoid myFunction(String test{\n" +
                 "    h)elp();//test\n" +
                 "/*wow\n" +

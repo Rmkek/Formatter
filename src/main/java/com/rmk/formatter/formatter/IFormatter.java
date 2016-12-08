@@ -16,6 +16,6 @@ public interface IFormatter {
      * @param writer to which output will be written.
      * @throws FormatterException when any exception occur.
      */
-    void format(IReader reader, IWriter writer) throws FormatterException;
+    void format(IReader reader, IWriter writer, StateManager manager) throws FormatterException;
 
 }

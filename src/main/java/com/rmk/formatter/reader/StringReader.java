@@ -5,7 +5,7 @@ import com.rmk.formatter.exception.ReaderException;
 /**
  * StringReader implementation.
  */
-public class StringReader implements IReader {
+public class StringReader implements IReader<Character> {
 
     private String string;
     private int charNum = 0;
@@ -20,11 +20,11 @@ public class StringReader implements IReader {
 
     @Override
     public boolean hasChars() throws ReaderException {
-        return (string.length() <= charNum) ? false :  true;
+        return string.length() > charNum;
     }
 
     @Override
-    public Object readChar() throws ReaderException {
+    public Character readChar() throws ReaderException {
         return string.charAt(charNum++);
     }
 }

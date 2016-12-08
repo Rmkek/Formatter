@@ -5,17 +5,12 @@ import com.rmk.formatter.formatter.command.Action;
 /**
  * Class for escape characters.
  */
-public class EscapeState extends State {
+public class EscapeState implements IState {
 
-    private final char symbol;
+    private char symbol;
 
 
-    /**
-     * Constructor for EscapeState.
-     * @param a char that will be used.
-     */
-    EscapeState(final char a) {
-        super(a);
+    public void setSymbol(final char a) {
         symbol = a;
     }
 
@@ -24,8 +19,8 @@ public class EscapeState extends State {
      * @param a character that will be used
      * @return Action.
      */
-    public Action getAction(final char a) {
-        return new Action(String.valueOf(a));
+    public Action getAction() {
+        return new Action(new char[]{symbol});
     }
 
     /**
@@ -34,8 +29,10 @@ public class EscapeState extends State {
      * @param a current character.
      * @return new CommentState
      */
-    public static State getNextState(final State currentState, final char a) {
-        return new CommentState(a);
+    public IState getNextState(final IState currentState, final char a) {
+        IState state = new CommentState();
+        state.setSymbol(a);
+        return state;
     }
 
 }
