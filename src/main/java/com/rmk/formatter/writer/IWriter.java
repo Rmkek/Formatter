@@ -10,7 +10,7 @@ public interface IWriter<T> {
      * Writes symbol in implemented stream.
      * @param c char that will be written.
      */
-    void writeChar(final T c);
+    void writeChar(T c);
 
     /**
      * Method for closing stream.

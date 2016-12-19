@@ -14,6 +14,7 @@ public interface IFormatter {
      * Method that formats input code.
      * @param reader from which code will be read.
      * @param writer to which output will be written.
+     * @param manager which will be managing state of the app.
      * @throws FormatterException when any exception occur.
      */
     void format(IReader reader, IWriter writer, StateManager manager) throws FormatterException;

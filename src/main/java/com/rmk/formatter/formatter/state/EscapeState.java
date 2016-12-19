@@ -1,6 +1,7 @@
 package com.rmk.formatter.formatter.state;
 
-import com.rmk.formatter.formatter.command.Action;
+import com.rmk.formatter.formatter.command.EscapeAction;
+import com.rmk.formatter.formatter.command.IAction;
 
 /**
  * Class for escape characters.
@@ -16,11 +17,10 @@ public class EscapeState implements IState {
 
     /**
      * Method for getting action with character
-     * @param a character that will be used
      * @return Action.
      */
-    public Action getAction() {
-        return new Action(new char[]{symbol});
+    public IAction getAction() {
+        return new EscapeAction(symbol);
     }
 
     /**

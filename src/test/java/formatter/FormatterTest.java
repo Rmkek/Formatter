@@ -33,24 +33,22 @@ public class FormatterTest {
         StringWriter writer = new StringWriter();
 
         formatter.format(reader, writer, new StateManager());
-        assertEquals(writer.getStringContent(), "vvoid myFunction(String test{\n" +
-                "    h)elp();}");
+        assertEquals(writer.getStringContent(), "void myFunction(String test)         test();\n");
     }
 
     @Test
     public void testFormatWithStringAndComments() throws Exception {
         StringReader reader = new StringReader("void myFunction(String test){help();\n//test\n/* wow" +
-                "\nmulti\nline\ncomment!!!\n*/\n");
+                "\nmulti\nline\ncomment!!!\n*/");
         StringWriter writer = new StringWriter();
 
         formatter.format(reader, writer, new StateManager());
-        assertEquals(writer.getStringContent(), "vvoid myFunction(String test{\n" +
-                "    h)elp();//test\n" +
-                "/*wow\n" +
+        assertEquals(writer.getStringContent(), "void myFunction(String test)     help();\n" +
+                "//test\n" +
+                "/* wow\n" +
                 "multi\n" +
                 "line\n" +
                 "comment!!!\n" +
-                "*/;    \n" +
-                "}");
+                "*/");
     }
 }

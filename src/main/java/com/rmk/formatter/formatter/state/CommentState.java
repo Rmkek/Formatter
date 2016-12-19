@@ -1,6 +1,7 @@
 package com.rmk.formatter.formatter.state;
 
-import com.rmk.formatter.formatter.command.Action;
+import com.rmk.formatter.formatter.command.CommentAction;
+import com.rmk.formatter.formatter.command.IAction;
 
 import java.util.HashMap;
 
@@ -16,8 +17,8 @@ public class CommentState implements IState {
     private static HashMap<Character, IState> stateHashMap = new HashMap<>();
 
     @Override
-    public void setSymbol(char a) {
-        if(!commentSymbolSet) {
+    public void setSymbol(final char a) {
+        if (!commentSymbolSet) {
             commentSymbol = a;
             commentSymbolSet = true;
         }
@@ -29,8 +30,8 @@ public class CommentState implements IState {
     }
 
     @Override
-    public Action getAction() {
-        return new Action(new char[]{symbol});
+    public IAction getAction() {
+        return new CommentAction(symbol);
     }
 
     /**
@@ -40,7 +41,7 @@ public class CommentState implements IState {
      * @return state.
      */
     public IState getNextState(final IState currentState, final char a) {
-        IState state = stateHashMap.getOrDefault(a,new DefaultState());
+        IState state = stateHashMap.getOrDefault(a, new DefaultState());
         state.setSymbol(a);
         return state;
     }
